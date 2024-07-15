@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./assets/fav.png" type="image/png">
+  <title>Greatsword V4</title>
+
+
+  <link rel="stylesheet" href="./assets/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+
+  <script src="./uv/uv.bundle.js"></script>
+  <script src="./uv/uv.config.js"></script>
+  <script src="./assets/register-sw.js"></script>
+  <script src = './assets/exploitscripts.js'></script>
+  <!--Put scripts related to cloaking here-->
+	<script>
+if (localStorage.getItem('cloaksite') == null) {
+  localStorage.setItem('cloaksite', 'https://classroom.google.com');
+}
+if ( window.self === window.top && localStorage.getItem('cloaked') == 'true') {
+	const popup = open("about:blank", "_blank")
+    const doc = popup.document
+    const iframe = doc.createElement("iframe")
+    const style = iframe.style
+    const link = doc.createElement("link")
+    const name = localStorage.getItem("name") || "My Drive - Google Drive"
+    const icon = localStorage.getItem("icon") || "https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png" // S M O R T
+    doc.title = name
+    link.rel = "icon"
+    link.href = icon
+    iframe.src = location.href
+    style.position = "fixed"
+    style.top = style.bottom = style.left = style.right = 0
+    style.border = style.outline = "none"
+    style.width = style.height = "100%"
+    doc.head.appendChild(link)
+    doc.body.appendChild(iframe)
+    location.replace(localStorage.getItem('cloaksite')) // I dont think running a function each time is the best way but... 
+}
+
+	</script>
+</head>
+
+<body>
+   <div class="navbar">
+    <a href="/index.html" class="button">Home</a>
+        <a href="/games.html" class="button">Games</a>
+        <a href="/chat.html" class="button">Chat</a> 
+        <a href="https://discord.com/invite/BMxe6D9CKv" class="button">Discord</a>
+        <a href="https://github.com/TacoGuy21/Greatsword-V3 " class="button">Github</a>
+   </div>
+  <div class="container">
+    <h1 class="header">      
+      Greatsword V4
+    </h1>
+    <input type="text" class="input" placeholder="Made by Tacogamerman">
+  </div>
+
+  <div class="footer">
+    <footer>
+      <button onclick="toggle_cloaking()" class="button">Toggle cloaking</button>
+    </footer>
+  </div>
+<script>
+  function toggle_cloaking() {
+    if (localStorage.getItem('cloaked') == null || localStorage.getItem('cloaked') === 'false') {
+      localStorage.setItem('cloaked', 'true');
+      alert("Cloaked set to " + localStorage.getItem('cloaked'));
+      return;
+    } else {
+      localStorage.setItem('cloaked', 'false');
+      alert("Cloaked set to " + localStorage.getItem('cloaked'));
+      return;
+    }
+  }
+</script>
+<script src="./assets/script.js" defer></script>
+</body>
+</html>
